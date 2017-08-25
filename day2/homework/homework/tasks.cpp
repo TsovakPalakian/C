@@ -147,7 +147,7 @@ void task7() {
 	}
 	printf(" Enter the number [1,12]: ");
 
-	switch (m) {
+	switch ( integer() ) {
 		case 3: 
 		case 4:
 		case 5:
@@ -545,15 +545,15 @@ void task_variant_7(){
 }
 
 void main() {
-	task1();
-	task2();
-	task3();
-	task4();
-	task5();
-	task6();
+	//task1();
+	//task2();
+	//task3();
+	//task4();
+	//task5();
+	//task6();
 	task7();
-	task8();
-	task9();
+	//task8();
+	//task9();
 	//task10();//This function must be run separately from all.
 	//task11();//This function must be run separately from all.
 	//task12();//This function must be run separately from all.
