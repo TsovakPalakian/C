@@ -50,6 +50,12 @@ void task_7() {
 void task_8() {
 	printf(" %lli", inverse(45354521520891458));
 }
+void task_9() {
+	int n;
+	int m;
+	initialization_of_two_variables(n, m);
+	printf(" n = %d, m = %d", n, m);
+}
 void task_10() {
 	int a = enter_an_integer("a");
 	int b = enter_an_integer("b");
@@ -97,6 +103,7 @@ void task_16() {
 }
 
 int main(){
+	fflush(stdout);
 	//task_1();
 	//task_2();
 	//task_3();
@@ -106,17 +113,15 @@ int main(){
 	//////////////task_7();
 	//task_8();
 	
-	//task_9
-	//int n = enter_any_number("n");
-	//int m = enter_any_number("m");
-
+	task_9();
+	
 	//task_10();
 	//task_11();
 
 	//task_12();
 	//task_13();
 	//task_14();
-	task_15();
+	//task_15();
 	/////////////task_16();
 
 

@@ -114,6 +114,10 @@ void perfect_integer(int unto_num) {
 		(k == sum) ? printf("\n Is this the integer perfect? Yes: %d\n", k) : 0;
 	}
 }
+void initialization_of_two_variables(int &n, int &m) {
+	n = enter_any_number("n");
+	m = enter_any_number("m");
+}
 void values_of_function(int &n, int &m, int &p) {
 	int a = n, b = m, c = p;
 	n = a + b + c - (int) power(a, 2);
