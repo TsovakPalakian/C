@@ -10,6 +10,10 @@ void task_1() {
 	printf(" Enter a positive integer [1,16]: ");
 	int n, fac = 1;
 	scanf("%d", &n);
+	if (n < 0) { 
+		printf(" The wrong number is entered!"); 
+		return;
+	}
 	for(int i = 1; i <= n; ++i) {
 		fac *= i;
 	}
@@ -65,10 +69,8 @@ void task_4() {
 	scanf("%d", &b);
 	
 	for (a; b >= a; ++a) {
-		n = a;
-		m = a;
-		while (--m != -1) {			
-			printf(" %d ", n);
+		for (int i = 0; i < a; ++i) {
+			printf(" %d ", a);
 		}
 		printf("\n");
 	}
@@ -80,7 +82,7 @@ void task_5() {
 	printf("\tTask_5\n");
 	fflush(stdout);
 	
-	int a, i = 1, sum = 0;
+	int a, i, sum = 0;
 	printf(" Enter a positive integer [6, 10000]: ");
 	scanf("%d", &a);
 	for (int k = 1; k < a; ++k) {
@@ -108,6 +110,18 @@ void task_6() {
 		}
 		(k == 1) ? printf(" %d\n", i) : 0;
 	}
+
+	/*for (i = 2; i <= sqrt(n); ++i) {
+		if (!(n % i)) {
+			f = 0;
+			break;
+		}
+		if (f == 1) {
+			printf(" Yes");
+		} else {
+			printf(" No");
+		}
+	}*/
 
 	printf("\n-----------------------------------------\n");
 }
@@ -280,18 +294,18 @@ void task_13() {
 	printf("\n\n-----------------------------------------\n");
 }
 void main() {
-	task_1();
-	task_2();
-	task_3();
-	task_4();
-	task_5();
-	task_6();
-	task_7();
-	task_8();
-	task_9();
-	task_10();
-	task_11();
-	task_12();
-	task_13();
+	//task_1();
+	//task_2();
+	//task_3();
+	//task_4();
+	//task_5();
+	//task_6();
+	//task_7();
+	//task_8();
+	//task_9();
+	//task_10();
+	//task_11();
+	//task_12();
+	//task_13();
 	_getch();
 }
