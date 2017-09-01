@@ -1,9 +1,8 @@
 #include<stdio.h>
 #include<conio.h>
-#include<math.h>
 #include<stdlib.h>
 #include<time.h>
-#include "day4.h"
+#include "day4.h" 
 
 void task_1() {
 	int a = enter_an_integer("a");
@@ -26,11 +25,16 @@ void task_2() {
 }
 void task_3() {
 	double a = enter_any_number("a");
+	if(!a){
+		printf("\n This equation is not quadratic.\n");
+		return;
+	}
 	double b = enter_any_number("b");
 	double c = enter_any_number("c");
 
 	form_of_equestion(a, b, c);
-	roots(discriminant(a, b, c), a, b, c);
+	double D = discriminant(a, b, c);
+	roots(D, a, b, c);
 }
 void task_4() {
 	printf(" %.10lf\n", power(-0.2, -0.2));
@@ -93,17 +97,16 @@ void task_14() {
 	printf(" gcd = %d", GCD(a, b));
 }
 void task_15() {
+	srand(time(NULL));
 	int n;
-	n = 7 + rand() % (57 - 7 + 1);
+	n = 7 + rand() % 51;
 	guess_the_number(n);
 }
 
-void task_16() {
-	
-}
+void task_16() {}
+
 
 int main(){
-	fflush(stdout);
 	//task_1();
 	//task_2();
 	//task_3();
@@ -113,7 +116,7 @@ int main(){
 	//////////////task_7();
 	//task_8();
 	
-	task_9();
+	//task_9();
 	
 	//task_10();
 	//task_11();
@@ -124,6 +127,8 @@ int main(){
 	//task_15();
 	/////////////task_16();
 
+
+	//printf("%d", power(0,-1)); 
 
 	_getch();
 	return 0;

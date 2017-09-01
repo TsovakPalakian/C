@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<math.h>
 #include "day4.h"
 
 int max(int a, int b, int c) {
@@ -125,9 +124,6 @@ void values_of_function(int &n, int &m, int &p) {
 	p = a * b * c;
 }
 void swap(int &n, int &m) {
-	//int tmp = n;
-	//n = m;
-	//m = tmp;
 	n = n + m;
     m = n - m;
     n = n - m;
@@ -157,10 +153,18 @@ int GCD(int n, int m) {
 	}
 	return gcd;
 }
+int k = 7;
+int p = 57;
 void guess_the_number(int n) {
 	int m = enter_an_integer("m");
-	(m > n) ? printf(" enter the number form the interval [7, %d]\n", m) : 0;
-	(m < n) ? printf(" enter the number form the interval [%d, 57]\n", m) : 0;
+	if (m > k && m < p) {
+		k = m;
+	} 
+	if (m < p) {
+		p = m;
+	}
+	(m > n) ? printf(" enter the number from the interval [%d, %d]\n",k, m) : 0;
+	(m < n) ? printf(" enter the number from the interval [%d, %d]\n", m, p) : 0;
 	if(n != m) { 
 		guess_the_number(n);
 	} else {
@@ -180,52 +184,44 @@ long long int inverse(long long int number) {
 }
 
 void form_of_equestion(double a, double b, double c) {
-
-	if (a == 0) {
-		printf("\n This equation is not quadratic.\n");
+	printf("\n y(x) = ");
+	switch ((int)a) {
+		case -1 : printf("-x^2 ");
+			break;
+		case 1 : printf("x^2 ");
+			break;
+		default : printf("%.2lf * x^2 ", a);
 	}
-	if (!b && !c) {
-		printf("\n y(x) = %.2lf * x^2 = 0;\n", a);
-	} else {
-		if (!b) {
-			if (c > 0) {
-				printf("\n y(x) = %.2lf * x^2 + %.2lf = 0;\n", a, c);
-			}
-			if (c < 0) {
-				printf("\n y(x) = %.2lf * x^2 %.2lf = 0;\n", a, c);
-			}
-		}
-		if (!c) {
-			if (b > 0) {
-				printf("\n y(x) = %.2lf * x^2 + %.2lf * x = 0;\n", a, b);
-			}
-			if (b < 0) {
-				printf("\n y(x) = %.2lf * x^2 %.2lf * x = 0;\n", a, b);
-			}
+	if (b) {
+		switch ((int)b) {
+			case -1 : printf("- x ");
+				break;
+			case 1 : printf("+ x ");
+				break;
+			default : printf("%.2lf * x ", b);
 		}
 	}
-	if (a && b && c) {
-		if (b > 0 && c > 0) {
-			printf("\n y(x) = %.2lf * x^2 + %.2lf * x + %.2lf = 0;\n", a, b, c);
-		}
-		if (b > 0 && c < 0) {
-			printf("\n y(x) = %.2lf * x^2 + %.2lf * x %.2lf = 0;\n", a, b, c);
-		}
-		if (b < 0 && c > 0) {
-			printf("\n y(x) = %.2lf * x^2 %.2lf * x + %.2lf = 0;\n", a, b, c);
-		}
-		if (b < 0 && c < 0) {
-			printf("\n y(x) = %.2lf * x^2 %.2lf * x %.2lf = 0;\n", a, b, c);
+	if (c) {
+		switch ((int)c) {
+			case -1 : printf("- 1 ");
+				break;
+			case 1 : printf("+ 1 ");
+				break;
+			default : printf("%.2lf ", c);
 		}
 	}
+	printf("= 0\n");
 }
 double discriminant(double a, double b, double c) {
 	double D = -1.0;
 	if (a && b && c) {
 		D = power(b,2) - 4 * a * c;
 		if (D < 0) {
-			printf("\n The discriminant of a negative number on the real axis does not exist!\n");
+			printf("\n D = %.2lf;\n", D);
+			printf("\n The discriminant has a negative value on the real axis does not exist!\n");
 			return -1.0;
+		} else {
+			printf("\n D = %.2lf;\n", D);
 		}
 		return D;
 	} else {
@@ -235,26 +231,26 @@ double discriminant(double a, double b, double c) {
 }
 void roots(double dis, double a, double b, double c) {
 	if (!b && !c) {
-		printf(" x1 = 0;\n x2 = 0;\n");
+		printf("\n x1 = 0;\n x2 = 0;\n");
 	} else {
 		if (!b && dis == -1) {
 			if ((a > 0 && c > 0) || (a < 0 && c < 0)) {
 				printf("\n This equation has no roots!\n");
 			}
 			if ((a > 0 && c < 0) || (a < 0 && c > 0)) {
-				printf(" x1 = %lf;\n x2 = %lf;\n", sqrt(abs(c/a)), -sqrt(abs(c/a)));
+				printf("\n x1 = %.2lf;\n x2 = %.2lf;\n", _sqrt(_abs(c/a)), -_sqrt(_abs(c/a)));
 			}
 		}
 		if (!c && dis == -1) {
-			printf(" x1 = 0;\n x2 = %lf;\n", -b/a);
+			printf("\n x1 = 0;\n x2 = %.2lf;\n", -b/a);
 		}
 	}
 	if (dis == 0) {
-		printf(" x1 = x2 = %lf;\n", -b/(2 * a));
+		printf("\n x1 = x2 = %.2lf;\n", -b/(2 * a));
 	}
 	if (dis > 0) {
-		printf("\n x1 = %lf;\n", (-b + sqrt(dis))/(2 * a));
-		printf(" x2 = %lf;\n", (-b - sqrt(dis))/(2 * a));
+		printf("\n x1 = %.2lf;\n", (-b + _sqrt(dis))/(2 * a));
+		printf(" x2 = %.2lf;\n", (-b - _sqrt(dis))/(2 * a));
 	}
 }
 

@@ -210,18 +210,20 @@ void task_10() {
 	printf("\n\n-----------------------------------------\n");
 }
 void task_11() {
+	fflush(stdin);
 	printf("\n-----------------------------------------\n");
 	printf("\tTask_11\n");
-	fflush(stdout);
 	
 	double n, res;
-	char ch;
-	printf(" Enter an expression: ");
+	char ch, enter;
+	printf(" Enter an expression: \n");
 
 	scanf("%lf", &res);
-	scanf("%c", &ch);
-	while (ch != '=') {
-		scanf("%lf", &n);
+	do {
+		scanf("%c", &enter);
+		scanf("%c", &ch);
+		scanf("%c", &enter);
+		(ch != '=') ? scanf("%lf", &n) : 0;
 		switch (ch) {
 			case 43 : res += n;
 				break;
@@ -232,8 +234,7 @@ void task_11() {
 			case 47 : res /= n;
 				break;
 		} 
-		scanf("%c", &ch);
-	}
+	} while (ch != '=');
 
 	printf("\n The value of the expression is : %lf", res);
 
@@ -304,7 +305,7 @@ void main() {
 	//task_8();
 	//task_9();
 	//task_10();
-	//task_11();
+	task_11();
 	//task_12();
 	//task_13();
 	_getch();

@@ -18,8 +18,6 @@ void _convert(double n) {
 			num /= 2;
 			denom /= 2;
 		}
-		//printf("%d\n", num);
-		//printf("%d\n", denom);
 	} else {
 		printf("\n The number is outside the range.\n");
 	}
@@ -116,8 +114,18 @@ double _sqrt(int number, int deg, int deg_root) {
 	} while (_abs(x1 - g) >= eps);
 	return x1;
 }
+double _sqrt(double number) {
+	double x1, x0 = 1.0, g, eps = 0.000001;	
 
+	x1 = (double)1/2 * (2 - 1 + number/power(x0, 2)) * x0;
+	do {
+		g = x1;
 
+		x1 = (double)1/2 * ((2 - 1) + number/power(x1, 2)) * x1;
+
+	} while (_abs(x1 - g) >= eps);
+	return x1;
+}
 double power(int a, int n) {
 	double result = 1.0;
 	if (a > 0) {
