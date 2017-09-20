@@ -5,15 +5,12 @@ void main(void) {
 	Fractional f1(5, 1);
 	Fractional f2(5, 2);
 	Fractional res;
+	Print p(f1, f2, res);
 
-	Operational add('+');
-	res = f1.operation(f2,add);
-	Print print(f1, f2, res, add);
-	print.print();
+	p.solve('-').print();
+	p.solve('+').print();
+	p.solve('*').print();
+	p.solve('/').print();
 
-	Operational dif('-');
-	res = f1.operation(f2, dif);
-	Print print1(f1, f2, res, dif);
-	print1.print();
 	system("pause");
 }

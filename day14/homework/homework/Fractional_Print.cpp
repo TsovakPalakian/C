@@ -3,10 +3,10 @@
 #include "Fractional_Print.h"
 
 using namespace std;
-Fractional Fractional::operation(const Fractional& fra, Operational& math_oper){
+Fractional Fractional::operation(const Fractional& fra, char& math_oper){
 	Fractional result;
 	result.den = den * fra.den;
-	switch (math_oper.getOper()) {
+	switch (math_oper) {
 		case '+' : result.num = num * fra.den + den * fra.num;
 			break;
 
@@ -29,10 +29,10 @@ void Print::print() {
 	int n = result.getNum()/result.getDen();
 	int m = result.getNum() - n * result.getDen();
 	stringstream s, d;
-	if (math_oper.getOper() == '/') {
+	if (math_oper == '/') {
 		d << ":";
 	} else {
-		d << math_oper.getOper();
+		d << math_oper;
 	}
 	s << f1.getNum() << '/' << f1.getDen() << " " << d.str() << " " 
 	  << f2.getNum() << '/' << f2.getDen() << " = " << n;
