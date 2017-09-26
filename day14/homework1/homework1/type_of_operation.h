@@ -1,0 +1,1 @@
+int summation(Fractional& f1, int type_of_operation);

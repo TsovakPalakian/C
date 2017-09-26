@@ -1,0 +1,1 @@
+void _swap(TelephoneExchange *pte, int i, int j);
