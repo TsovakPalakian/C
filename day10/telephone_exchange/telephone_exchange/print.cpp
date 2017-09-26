@@ -30,6 +30,7 @@ void printAll(TelephoneExchange *pte) {
 }
 
 void printi(TelephoneExchange *pte, int i, int key) {
+	
 	if (!key) {
 		_created_table_template_head();
 	}
